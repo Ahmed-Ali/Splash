@@ -34,7 +34,7 @@ public extension AttributedStringOutputFormat {
         }
 
         public mutating func addToken(_ token: String, ofType type: TokenType) {
-            let color = theme.tokenColors[type] ?? Color(red: 1, green: 1, blue: 1)
+            let color = theme.tokenColors[type] ?? SColor(red: 1, green: 1, blue: 1)
             string.append(token, font: font, color: color)
         }
 
@@ -43,7 +43,7 @@ public extension AttributedStringOutputFormat {
         }
 
         public mutating func addWhitespace(_ whitespace: String) {
-            let color = Color(red: 1, green: 1, blue: 1)
+            let color = SColor(red: 1, green: 1, blue: 1)
             string.append(whitespace, font: font, color: color)
         }
 
@@ -54,7 +54,7 @@ public extension AttributedStringOutputFormat {
 }
 
 private extension NSMutableAttributedString {
-    func append(_ string: String, font: Font.Loaded, color: Color) {
+    func append(_ string: String, font: Font.Loaded, color: SColor) {
         let attributedString = NSAttributedString(string: string, attributes: [
             .foregroundColor: color,
             .font: font

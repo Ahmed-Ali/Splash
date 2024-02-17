@@ -60,7 +60,7 @@ internal extension Font {
     private func loadDefaultFont() -> Loaded {
         let font: Loaded?
 
-        #if os(iOS)
+        #if os(iOS) || os(visionOS)
         font = UIFont(name: "Menlo-Regular", size: CGFloat(size))
         #else
         font = load(fromPath: "/Library/Fonts/Courier New.ttf")
@@ -84,7 +84,7 @@ internal extension Font {
 
 #endif
 
-#if os(iOS)
+#if os(iOS) || os(visionOS)
 
 import UIKit
 
